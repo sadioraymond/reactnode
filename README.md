@@ -1,0 +1,3 @@
+-npm install
+-cd /pulse-test && npm install
+-run cd .. && npm start to launch app
