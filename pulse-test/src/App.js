@@ -6,6 +6,7 @@ import './App.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Container, Row, Col } from 'reactstrap';
 
 const { TextArea } = Input;
 const gettingFileUrl = "http://localhost:5000/file/fileToedit";
@@ -49,19 +50,26 @@ class Demo extends React.Component {
     const { value } = this.state;
     return (
       <>
-        <div className="labelInput">
-          <Input value={this.state.text} disabled={true} />
-        </div>
-        <div className="textareaDiv">
-          <TextArea
-            value={value}
-            onChange={this.onChange} size="middle"
-            autoSize={{ minRows: 8, maxRows: 8 }}
-          />
-        </div>
-        <div className="buttonDiv">
-          <Button type="primary" onClick={this.saveFile} >Save</Button>
-        </div>
+        <Container>
+          <Row>
+            <Col>
+              <Input value={this.state.text} disabled={true} />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <TextArea
+                value={value}
+                onChange={this.onChange} size="middle"
+                autoSize={{ minRows: 8, maxRows: 8 }}
+              /></Col>
+          </Row>
+          <Row>
+            <Col sm="12" md={{ size: 6, offset: 11 }}>
+              <Button type="primary" onClick={this.saveFile} >Save</Button>
+            </Col>
+          </Row>
+        </Container>
         <ToastContainer />
       </>
     );
